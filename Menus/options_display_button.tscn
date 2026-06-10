@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://drbi2tsp3pov6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_31ppo"]
+
+[node name="Options_Display_Button" type="Control" unique_id=898736870]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=989150298]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 160
+
+[node name="Label" type="Label" parent="HBoxContainer" unique_id=1335672052]
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4509804, 0.654902, 0.7490196, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 32
+text = "Base_Label"
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer" unique_id=694319150]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_31ppo")
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer" unique_id=1809323636]
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 2

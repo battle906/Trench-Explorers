@@ -18,6 +18,12 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 
 GlobalWorldEnvironment="*uid://dmlkst6cl5ieg"
 
+[display]
+
+window/size/mode=3
+window/size/borderless=true
+window/stretch/mode="viewport"
+
 [gui]
 
 theme/custom_font="uid://m1gd1kdxkho3"
@@ -61,3 +67,4 @@ left={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true
