@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var player: CharacterBody2D = $"player"
 @onready var bg_layer: Sprite2D = $"ParallaxBackground/ParallaxLayer/SpriteBackground"
-@onready var cam: Camera2D = $player/Camera2D
 
 func _process(delta):
 	#gets the player y pos

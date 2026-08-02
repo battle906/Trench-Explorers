@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://deigw7fwy1h17" path="res://Main Game/Main Game Scripts/movement.gd" id="1_4flbx"]
 [ext_resource type="FontFile" uid="uid://m1gd1kdxkho3" path="res://Jersey20-Regular.ttf" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://bqus70cqgnca3" path="res://Main Game/Main Game Scripts/collision_shape_2d.gd" id="4_sweqy"]
-[ext_resource type="Script" uid="uid://dgpxgr32tggmp" path="res://Main Game/Main Game Scripts/collision_shape_2d_2.gd" id="5_sweqy"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_onrkg"]
 load_path = "res://.godot/imported/arrow_back_33dp_006BAB_FILL0_wght400_GRAD0_opsz40.png-7a271de32ccfdd3e14a2dce8e44ce9a9.ctex"
@@ -14,17 +12,11 @@ radius = 25.495098
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends Camera2D
 
-var fixed_x = 795.0
+var fixed_x = 0
 
 func _process(delta):
 	global_position.x = fixed_x
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
-size = Vector2(14, 358)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
-size = Vector2(12, 368)
 
 [node name="player" type="CharacterBody2D" unique_id=2027188581]
 disable_mode = 2
@@ -69,27 +61,3 @@ vertical_alignment = 1
 position = Vector2(462, 344)
 zoom = Vector2(1.795, 1.795)
 script = SubResource("GDScript_4flbx")
-
-[node name="borders" type="StaticBody2D" parent="." unique_id=81474176]
-position = Vector2(481, 155)
-collision_layer = 3
-
-[node name="right" type="StaticBody2D" parent="borders" unique_id=789310747]
-position = Vector2(-333, 1)
-collision_layer = 255
-collision_mask = 255
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="borders/right" unique_id=1123669368]
-position = Vector2(638, 189)
-shape = SubResource("RectangleShape2D_2hs0m")
-script = ExtResource("4_sweqy")
-
-[node name="left" type="StaticBody2D" parent="borders" unique_id=1134514602]
-position = Vector2(-336, 5)
-collision_layer = 255
-collision_mask = 255
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="borders/left" unique_id=1316471606]
-position = Vector2(-5, 178)
-shape = SubResource("RectangleShape2D_1jxqw")
-script = ExtResource("5_sweqy")

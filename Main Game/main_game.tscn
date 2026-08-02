@@ -36,6 +36,9 @@ shader_parameter/camera_xform = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
 a = Vector2(746, 58)
 b = Vector2(104, 58)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkka1"]
+size = Vector2(12, 368)
+
 [node name="main game" type="Node2D" unique_id=1207342263]
 script = ExtResource("1_ykeeq")
 metadata/_edit_horizontal_guides_ = [-1132.0]
@@ -49,7 +52,6 @@ motion_mirroring = Vector2(0, 1091.785)
 [node name="SpriteBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=729883487]
 light_mask = 4
 material = SubResource("ShaderMaterial_dugkq")
-position = Vector2(795.00006, 346)
 scale = Vector2(3.8909574, 3.6416664)
 texture = ExtResource("2_yx7mw")
 offset = Vector2(0.115, 0)
@@ -61,6 +63,7 @@ collision_layer = 255
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisions" unique_id=620738140]
+position = Vector2(-800, -29)
 shape = SubResource("SegmentShape2D_yx7mw")
 
 [node name="player" parent="." unique_id=2027188581 instance=ExtResource("1_1oj5k")]

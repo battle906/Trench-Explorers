@@ -2,6 +2,10 @@ extends CharacterBody2D
 #variables
 @export var PIXELS_PER_METER = 50
 @export var speed = 400
+@onready var borders: StaticBody2D = $Borders
+
+
+
 #takes your inputs and multiples speed
 func get_input():
 	var input_direction = Input.get_vector("left", "right", "up", "down")
@@ -25,4 +29,5 @@ func _process(delta):
 	var final_color := mid_blend.lerp(deep_color, t)
 	height_label.modulate = final_color
 	
-	
+	borders.global_position.y = global_position.y
+	borders.global_position.x = -462
