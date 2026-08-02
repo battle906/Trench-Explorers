@@ -8,7 +8,7 @@ func _process(delta):
 	var depth: float = player.global_position.y
 	
 	#the depths for the tint
-	var start_depth := 200 * 50
+	var start_depth := 50 * 50
 	var max_depth := 6000 * 50
 	
 	#the code to start the tint after you go below 200m  

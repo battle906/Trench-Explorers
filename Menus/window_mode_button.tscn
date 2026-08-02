@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://od3fkenj04c1"]
+
+[ext_resource type="PackedScene" uid="uid://drbi2tsp3pov6" path="res://Menus/options_display_button.tscn" id="1_y4xrn"]
+
+[sub_resource type="GDScript" id="GDScript_y4xrn"]
+script/source = "extends Control
+
+
+@onready var option_button: OptionButton = $HBoxContainer/OptionButton
+
+
+const WINDOW_MODE_ARRAY :Array[String] = [
+	\"Full-Screen\",
+	\"Window Mode\",
+	\"Borderless Window\",
+	\"Borderless Full-Screen\"
+]
+
+
+func _ready():
+	option_button.item_selected.connect(on_window_mode_selected)
+	add_window_mode_items()
+
+func add_window_mode_items() -> void:
+	for window_mode in WINDOW_MODE_ARRAY:
+		option_button.add_item(window_mode)
+
+
+
+func on_window_mode_selected(index : int) -> void:
+	match index:
+		0: #Fullscreen
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+		1: #Window Mode
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, false)
+			get_tree().root.content_scale_size = Vector2i(DisplayServer.window_get_size())
+		2: #Borderless Window
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+		3: #Fullscreen Window
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_BORDERLESS, true)
+"
+
+[node name="Window_Mode_Button" unique_id=898736870 instance=ExtResource("1_y4xrn")]
+script = SubResource("GDScript_y4xrn")
+
+[node name="Label" parent="HBoxContainer" parent_id_path=PackedInt32Array(989150298) index="0" unique_id=1335672052]
+text = "Window Mode"

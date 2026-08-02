@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1v85qv5vr23r"
+path="res://.godot/imported/f90c-056d-4d94-aa69-364f5fc3cbd5.mp3-7d9f317f490125e012551a470193574d.mp3str"
+
+[deps]
+
+source_file="res://Menus/Menu Music/f90c-056d-4d94-aa69-364f5fc3cbd5.mp3"
+dest_files=["res://.godot/imported/f90c-056d-4d94-aa69-364f5fc3cbd5.mp3-7d9f317f490125e012551a470193574d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
