@@ -36,13 +36,15 @@ shader_parameter/camera_xform = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
 a = Vector2(746, 58)
 b = Vector2(104, 58)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkka1"]
-size = Vector2(12, 368)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uka08"]
+size = Vector2(4, 362)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osb01"]
+size = Vector2(8, 363)
 
 [node name="main game" type="Node2D" unique_id=1207342263]
 script = ExtResource("1_ykeeq")
 metadata/_edit_horizontal_guides_ = [-1132.0]
-metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1531579171]
 
@@ -81,7 +83,15 @@ position = Vector2(149, 171)
 collision_layer = 255
 collision_mask = 255
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Borders/left" unique_id=141730491]
+position = Vector2(-8, 170)
+shape = SubResource("RectangleShape2D_uka08")
+
 [node name="right" type="StaticBody2D" parent="player/Borders" unique_id=1600842485]
 position = Vector2(780, 146)
 collision_layer = 255
 collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Borders/right" unique_id=48506035]
+position = Vector2(9, 194.5)
+shape = SubResource("RectangleShape2D_osb01")

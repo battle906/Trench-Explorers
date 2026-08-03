@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 GlobalWorldEnvironment="*uid://dmlkst6cl5ieg"
+Music="*uid://3yo14xwljfmf"
 
 [display]
 

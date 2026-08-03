@@ -2,8 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://cl5dhubitr52v" path="res://Menus/options.tscn" id="2_bajiw"]
 [ext_resource type="FontFile" uid="uid://m1gd1kdxkho3" path="res://Jersey20-Regular.ttf" id="2_f0j1r"]
-[ext_resource type="AudioStream" uid="uid://cbr06nnju8et5" path="res://Menus/Menu Music/9724-f157-4d87-bdd0-783d12627bd7.mp3" id="3_0lp73"]
-[ext_resource type="AudioStream" uid="uid://c1v85qv5vr23r" path="res://Menus/Menu Music/f90c-056d-4d94-aa69-364f5fc3cbd5.mp3" id="4_5xuip"]
 
 [sub_resource type="GDScript" id="GDScript_7mewq"]
 resource_name = "main_menu"
@@ -15,6 +13,10 @@ extends Control
 @onready var exit = $MarginContainer/HBoxContainer/VBoxContainer/quit as Button 
 @onready var options_menu: OptionsMenu = $Options_Menu
 @onready var margin_container: MarginContainer = $MarginContainer
+@onready var music: AudioStreamPlayer = $MusicStreamPlayer
+
+
+
 
 @onready var main_game = preload(\"res://Main Game/main_game.tscn\") as PackedScene
 
@@ -23,6 +25,7 @@ func _ready() -> void:
 
 func on_start_pressed():
 	get_tree().change_scene_to_packed(main_game)
+	music.toggle_music()
 
 
 func on_options_pressed():
@@ -44,12 +47,6 @@ func handle_connecting_signals() -> void:
 	exit.button_down.connect(on_quit_pressed)
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 "
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_6rjxt"]
-shuffle = true
-stream_count = 2
-stream_0 = ExtResource("3_0lp73")
-stream_1 = ExtResource("4_5xuip")
 
 [node name="Main_Menu" type="Control" unique_id=1298839348]
 layout_mode = 3
@@ -149,8 +146,3 @@ text = "Quit Game"
 [node name="Options_Menu" parent="." unique_id=2124934271 instance=ExtResource("2_bajiw")]
 visible = false
 layout_mode = 1
-
-[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2061172811]
-stream = SubResource("AudioStreamPlaylist_6rjxt")
-volume_db = -20.411
-autoplay = true
