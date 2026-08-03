@@ -17,6 +17,13 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 [autoload]
 
 GlobalWorldEnvironment="*uid://dmlkst6cl5ieg"
+Music="*uid://3yo14xwljfmf"
+
+[display]
+
+window/size/mode=3
+window/size/borderless=true
+window/stretch/mode="viewport"
 
 [gui]
 
@@ -61,3 +68,4 @@ left={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+viewport/hdr_2d=true
