@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bclqgkajr84bk"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_atcxr"]
+[ext_resource type="Texture2D" uid="uid://b4djqxwlwdpkp" path="res://Assets/Fish/sword_fish.PNG" id="1_b0aem"]
+
+[resource]
+script = ExtResource("1_atcxr")
+fish_id = "swordfish"
+display_name = "Broadbill Swordfish"
+tier = 2
+habitat = "Deep pelagic waters; dives into cold, dark zones."
+diet = "Squid, fish, crustaceans."
+description = "Large, streamlined predator with a long, flat bill."
+fun_fact = "Their “sword” helps them slash prey at high speed."
+icon = ExtResource("1_b0aem")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

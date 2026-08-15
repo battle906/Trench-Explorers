@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bvnbuo4tu1662"]
+
+[ext_resource type="AudioStream" uid="uid://cbr06nnju8et5" path="res://Menus/Menu Music/9724-f157-4d87-bdd0-783d12627bd7.mp3" id="1_bwi2a"]
+[ext_resource type="AudioStream" uid="uid://c1v85qv5vr23r" path="res://Menus/Menu Music/f90c-056d-4d94-aa69-364f5fc3cbd5.mp3" id="2_p5p5y"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_8ss4e"]
+stream_count = 2
+stream_0 = ExtResource("1_bwi2a")
+stream_1 = ExtResource("2_p5p5y")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" unique_id=1961681342]
+process_mode = 3
+stream = SubResource("AudioStreamPlaylist_8ss4e")
+volume_db = -14.606
+autoplay = true

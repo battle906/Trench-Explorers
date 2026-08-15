@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://yrtha0hr3neb"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_qesha"]
+[ext_resource type="Texture2D" uid="uid://cn8m02b5brnpr" path="res://Assets/Fish/Lantern_fish.PNG" id="2_d7rhc"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="2_l8i41"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_75dbu"]
+
+[sub_resource type="Resource" id="Resource_75dbu"]
+script = ExtResource("2_l8i41")
+fish_id = "lantern_fish"
+display_name = "Lantern Fish"
+habitat = "Midwater twilight zone."
+diet = "Zooplankton, tiny crustaceans, small fish larvae."
+description = "Small, silvery, bioluminescent fish with rows of glowing photophores."
+fun_fact = "They make up over half of all deep-sea fish."
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lxba5"]
+shader = ExtResource("3_75dbu")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(15, 5)
+
+[node name="Lantern_fish" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_qesha")
+data = SubResource("Resource_75dbu")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_lxba5")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_d7rhc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=726856944]
+position = Vector2(0, 2)
+rect = Rect2(-10, -4, 20, 7)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c717kol18d5e8"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_nmjaa"]
+[ext_resource type="Resource" uid="uid://c46qedlsat61h" path="res://Data/Fish/halequin_fish.tres" id="2_nmjaa"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_5ecr1"]
+[ext_resource type="Texture2D" uid="uid://bbh62mnh856uv" path="res://Assets/Fish/harlequin_fish.PNG" id="3_nmjaa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m3r3s"]
+shader = ExtResource("3_5ecr1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(12.5625, 5.5)
+
+[node name="harlequin_fish" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_nmjaa")
+data = ExtResource("2_nmjaa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_m3r3s")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_nmjaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(0.28125, 2.25)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-11, -3, 13, 6)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

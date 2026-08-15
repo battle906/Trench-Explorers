@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://drbr2nb1fsid1"]
+
+[ext_resource type="Texture2D" uid="uid://bjln2o4e4yu0h" path="res://Assets/Fish/leafy_sea_dragon.PNG" id="1_ntyj4"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_rh43h"]
+
+[resource]
+script = ExtResource("1_rh43h")
+fish_id = "leay_sea_dragon"
+display_name = "Leafy Sea Dragon"
+habitat = "Shallow reefs and kelp forests of southern Australia."
+diet = "Small crustaceans, mysid shrimp."
+description = "Ornate, leaf‑covered relative of seahorses with slow, graceful movement."
+fun_fact = "They are masters of camouflage, resembling drifting seaweed."
+icon = ExtResource("1_ntyj4")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

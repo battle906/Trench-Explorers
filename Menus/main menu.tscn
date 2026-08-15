@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bj565gbsxj7qr"]
 
+[ext_resource type="Texture2D" uid="uid://5wok0pca548o" path="res://Assets/Background/IMG_2566.PNG" id="1_6rjxt"]
 [ext_resource type="PackedScene" uid="uid://cl5dhubitr52v" path="res://Menus/options.tscn" id="2_bajiw"]
-[ext_resource type="FontFile" uid="uid://m1gd1kdxkho3" path="res://Jersey20-Regular.ttf" id="2_f0j1r"]
+[ext_resource type="FontFile" uid="uid://m1gd1kdxkho3" path="res://Assets/Font/Jersey20-Regular.ttf" id="2_f0j1r"]
 
 [sub_resource type="GDScript" id="GDScript_7mewq"]
 resource_name = "main_menu"
@@ -13,20 +14,19 @@ extends Control
 @onready var exit = $MarginContainer/HBoxContainer/VBoxContainer/quit as Button 
 @onready var options_menu: OptionsMenu = $Options_Menu
 @onready var margin_container: MarginContainer = $MarginContainer
-@onready var music: AudioStreamPlayer = $MusicStreamPlayer
+@onready var continue_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/ContinueGame
+@onready var new_game_button: Button = $MarginContainer/HBoxContainer/VBoxContainer/NewGame
 
 
 
-
-@onready var main_game = preload(\"res://Main Game/main_game.tscn\") as PackedScene
+@onready var loading_screen = preload(\"res://Menus/loading_screen.tscn\") as PackedScene
 
 func _ready() -> void:
 	handle_connecting_signals()
-
-func on_start_pressed():
-	get_tree().change_scene_to_packed(main_game)
-	music.toggle_music()
-
+	continue_button.disabled = not SaveManager.has_save()
+	continue_button.pressed.connect(_on_continue_pressed)
+	new_game_button.pressed.connect(_on_new_game_pressed)
+	
 
 func on_options_pressed():
 	margin_container.visible = false
@@ -42,10 +42,32 @@ func on_exit_options_menu() -> void:
 	options_menu.visible = false
 
 func handle_connecting_signals() -> void:
-	start.button_down.connect(on_start_pressed)
 	options.button_down.connect(on_options_pressed)
 	exit.button_down.connect(on_quit_pressed)
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
+
+
+
+func _on_continue_pressed() -> void:
+	get_tree().change_scene_to_packed(loading_screen)
+
+func _on_new_game_pressed() -> void:
+	if SaveManager.has_save():
+		_confirm_new_game()
+	else:
+		_start_new_game()
+
+func _confirm_new_game() -> void:
+	# swap for your actual ConfirmationDialog node if you have one
+	var dialog := ConfirmationDialog.new()
+	dialog.dialog_text = \"This will erase your existing save. Continue?\"
+	add_child(dialog)
+	dialog.confirmed.connect(_start_new_game)
+	dialog.popup_centered()
+
+func _start_new_game() -> void:
+	SaveManager.delete_save()
+	get_tree().change_scene_to_packed(loading_screen)
 "
 
 [node name="Main_Menu" type="Control" unique_id=1298839348]
@@ -56,6 +78,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_7mewq")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2051646526]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_6rjxt")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=774361762]
 layout_mode = 1
@@ -100,7 +131,7 @@ alignment = 1
 [node name="sperator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=326939024]
 layout_mode = 2
 
-[node name="start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=371266479]
+[node name="NewGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=371266479]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -111,7 +142,23 @@ theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 7
 theme_override_fonts/font = ExtResource("2_f0j1r")
 theme_override_font_sizes/font_size = 33
-text = "Start Game"
+text = "New Game"
+
+[node name="sperator5" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=2046020152]
+layout_mode = 2
+
+[node name="ContinueGame" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=750036243]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.4492646, 0.65606254, 0.74717706, 1)
+theme_override_colors/font_hover_color = Color(0, 0.4204015, 0.6687968, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("2_f0j1r")
+theme_override_font_sizes/font_size = 33
+text = "Continue Game"
 
 [node name="sperator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=990491540]
 layout_mode = 2

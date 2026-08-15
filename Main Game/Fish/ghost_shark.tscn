@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cdtyn0xg5sl8s"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_nnqv0"]
+[ext_resource type="Texture2D" uid="uid://vjviab0bgaqy" path="res://Assets/Fish/ghost_shark.PNG" id="2_nnqv0"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="2_qtevc"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_ep51h"]
+
+[sub_resource type="Resource" id="Resource_ep51h"]
+script = ExtResource("2_qtevc")
+fish_id = "ghost_dragon"
+display_name = "Ghost Dragon"
+tier = 1
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8x1gy"]
+shader = ExtResource("3_ep51h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(12.5625, 5)
+
+[node name="ghost_shark" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_nnqv0")
+data = SubResource("Resource_ep51h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8x1gy")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_nnqv0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(0.28125, 2.5)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-11, -2, 13, 5)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

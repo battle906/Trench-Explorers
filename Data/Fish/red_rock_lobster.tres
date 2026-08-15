@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://cjtsowlhr7h0i"]
+
+[ext_resource type="Texture2D" uid="uid://4mpg14v23rrl" path="res://Assets/Fish/red_rock_lobster.PNG" id="1_56wlc"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_iujht"]
+
+[resource]
+script = ExtResource("1_iujht")
+fish_id = "red_rock_lobster"
+display_name = "Red Rock Lobster"
+habitat = "Rocky reefs and ledges."
+diet = "Mollusks, small crustaceans, carrion."
+description = "Large, spiny lobster with bright red armor‑like exoskeleton."
+fun_fact = "They migrate long distances across the seafloor during breeding seasons."
+icon = ExtResource("1_56wlc")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

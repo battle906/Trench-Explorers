@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c60xktquh8rbx"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_guxo8"]
+[ext_resource type="Resource" uid="uid://cisyb3xtihflv" path="res://Data/Fish/cuttle_fish.tres" id="2_guxo8"]
+[ext_resource type="Texture2D" uid="uid://noupjlyhm6g1" path="res://Assets/Fish/cuttle_fish.PNG" id="3_guxo8"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_qxqm4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8vob"]
+shader = ExtResource("3_qxqm4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(12.5625, 10)
+
+[node name="cuttle_fish" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_guxo8")
+data = ExtResource("2_guxo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_n8vob")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_guxo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(0.28125, 0)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-11, -7, 13, 10)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

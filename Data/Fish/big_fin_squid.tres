@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://k1undgsy723c"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_b11gj"]
+[ext_resource type="Texture2D" uid="uid://bbfkfm0lxopg5" path="res://Assets/Fish/big_fin_squid.PNG" id="1_yr3va"]
+
+[resource]
+script = ExtResource("1_b11gj")
+fish_id = "big_fin_squid"
+display_name = "Big Fin Squid"
+tier = 4
+habitat = "Ultra‑deep abyssal plains."
+diet = "Likely small fish and crustaceans."
+description = "Ghostly, long‑limbed squid with extremely thin, extended appendages."
+fun_fact = "Their arms can be up to 8 meters long, held at right angles like marionette strings."
+icon = ExtResource("1_yr3va")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

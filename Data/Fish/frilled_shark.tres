@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bxnc8fgimj7yb"]
+
+[ext_resource type="Texture2D" uid="uid://b406kdxwpoeah" path="res://Assets/Fish/frilled_shark.PNG" id="1_fekio"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_i6wn4"]
+
+[resource]
+script = ExtResource("1_i6wn4")
+fish_id = "frilled_shark"
+display_name = "Frilled Shark"
+tier = 2
+habitat = "Cold, deep continental slopes."
+diet = "Squid, fish, other deep‑sea animals."
+description = "Eel‑like shark with frilled gill slits and needle‑sharp teeth."
+fun_fact = "Often called a “living fossil” due to its primitive anatomy."
+icon = ExtResource("1_fekio")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

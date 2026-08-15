@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://dm8lhlgsy2hn5"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_a5fnt"]
+[ext_resource type="Texture2D" uid="uid://dkie3coalsakp" path="res://Assets/Fish/endeavour_dogfish.PNG" id="1_rlfvf"]
+
+[resource]
+script = ExtResource("1_a5fnt")
+fish_id = "endeavour_dogfish"
+display_name = "Endeavor Dogfish"
+tier = 1
+habitat = "Mid‑depth continental slope waters."
+diet = "Squid, small fish, crustaceans."
+description = "Small, dark‑bodied shark with large eyes adapted to low light."
+fun_fact = "A deep‑sea shark known for slow growth and long lifespan."
+icon = ExtResource("1_rlfvf")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

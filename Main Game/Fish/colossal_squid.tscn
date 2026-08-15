@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bs0imeajput74"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_hp47r"]
+[ext_resource type="Resource" uid="uid://1hhhqv32mb4b" path="res://Data/Fish/colossal_squid.tres" id="2_hp47r"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_avpvj"]
+[ext_resource type="Texture2D" uid="uid://c3nc7caocvbrq" path="res://Assets/Fish/colossal_squid.PNG" id="3_hp47r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v3tyv"]
+shader = ExtResource("3_avpvj")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(10, 14)
+
+[node name="colossal_squid" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_hp47r")
+data = ExtResource("2_hp47r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_v3tyv")
+rotation = -1.5707964
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("3_hp47r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(2, -2)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(7, -3)
+rect = Rect2(-10.775, -6, 10.425, 14.38)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

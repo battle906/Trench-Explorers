@@ -2,92 +2,244 @@
 
 [ext_resource type="PackedScene" uid="uid://bmxn2hfb6hd8j" path="res://Main Game/player.tscn" id="1_1oj5k"]
 [ext_resource type="Script" uid="uid://dwidx3du7x27s" path="res://Main Game/Main Game Scripts/main_game.gd" id="1_ykeeq"]
-[ext_resource type="Texture2D" uid="uid://cr67pb66mmm7u" path="res://Images/download.png" id="2_yx7mw"]
-
-[sub_resource type="Shader" id="Shader_ykeeq"]
-code = "shader_type canvas_item;
-
-uniform float darkness : hint_range(0.0, 1.0) = 0.0;
-uniform vec2 player_pos;
-uniform float hole_radius = 200.0;
-uniform float hole_softness = 100.0;
-uniform mat3 camera_xform;
-
-void fragment() {
-	vec4 tex = texture(TEXTURE, UV);
-	vec3 darkened = tex.rgb * (1.0 - darkness);
-	vec2 screen_pos = SCREEN_UV * SCREEN_PIXEL_SIZE;
-	vec2 world_pos = (camera_xform * vec3(screen_pos, 1.0)).xy; 
-	float dist = distance(world_pos, player_pos);
-	float mask = smoothstep(hole_radius + hole_softness, hole_radius, dist);
-	vec3 final_color = mix(tex.rgb, darkened, mask);
-	COLOR = vec4(final_color, tex.a);
-}"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dugkq"]
-shader = SubResource("Shader_ykeeq")
-shader_parameter/darkness = 0.0
-shader_parameter/player_pos = Vector2(0, -1)
-shader_parameter/hole_radius = 200.0
-shader_parameter/hole_softness = 100.0
-shader_parameter/camera_xform = Basis(1, 0, 0, 0, 1, 0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cno7qhn2mr54f" path="res://Assets/Background/IMG_2510.PNG" id="2_osb01"]
+[ext_resource type="Texture2D" uid="uid://bw81baa27hrrk" path="res://Assets/Background/IMG_2511.PNG" id="2_uka08"]
+[ext_resource type="Script" uid="uid://c0sb1ux5jtwtw" path="res://Main Game/Main Game Scripts/spawn_fish.gd" id="5_6nbqm"]
+[ext_resource type="Script" uid="uid://ljlxbmmet0jv" path="res://Main Game/Main Game Scripts/const.gd" id="6_6nbqm"]
+[ext_resource type="Script" uid="uid://cfewiyuwlsxyg" path="res://Main Game/Main Game Scripts/fish_entries.gd" id="6_143ap"]
+[ext_resource type="PackedScene" uid="uid://yrtha0hr3neb" path="res://Main Game/Fish/lantern_fish.tscn" id="6_ydgnk"]
+[ext_resource type="PackedScene" uid="uid://c2wwmmvq0phao" path="res://Main Game/Fish/Swordfish.tscn" id="7_ntyu6"]
+[ext_resource type="PackedScene" uid="uid://dbmjg60xc60w2" path="res://Main Game/Fish/big_fin_squid.tscn" id="7_q1kry"]
+[ext_resource type="PackedScene" uid="uid://cm1et1mu4wbdf" path="res://Main Game/Fish/blue_ringed_octopus.tscn" id="8_kv684"]
+[ext_resource type="PackedScene" uid="uid://cbpi1fqdkhlbs" path="res://Main Game/Fish/pelican_eel.tscn" id="9_6pco2"]
+[ext_resource type="PackedScene" uid="uid://kdey4ln3xvq8" path="res://Main Game/Fish/leafy_sea_dragon.tscn" id="10_0pd8b"]
+[ext_resource type="PackedScene" uid="uid://b77phqt01vtsi" path="res://Main Game/Fish/coffin_fish.tscn" id="10_ok4my"]
+[ext_resource type="PackedScene" uid="uid://bs0imeajput74" path="res://Main Game/Fish/colossal_squid.tscn" id="11_6pco2"]
+[ext_resource type="PackedScene" uid="uid://cdtyn0xg5sl8s" path="res://Main Game/Fish/ghost_shark.tscn" id="11_llmvm"]
+[ext_resource type="PackedScene" uid="uid://b1nbjqgtoauap" path="res://Main Game/Fish/frilled_shark.tscn" id="12_lqem0"]
+[ext_resource type="PackedScene" uid="uid://c60xktquh8rbx" path="res://Main Game/Fish/cuttle_fish.tscn" id="12_ok4my"]
+[ext_resource type="PackedScene" uid="uid://ciscwvdtcxpgo" path="res://Main Game/Fish/endeavour_dogfish.tscn" id="13_s28wp"]
+[ext_resource type="PackedScene" uid="uid://cx5f70s5dik01" path="res://Main Game/Fish/Bony_herring.tscn" id="14_sctbn"]
+[ext_resource type="PackedScene" uid="uid://c717kol18d5e8" path="res://Main Game/Fish/harlequin_fish.tscn" id="16_s28wp"]
+[ext_resource type="PackedScene" uid="uid://de3ggqsveeew7" path="res://Main Game/Fish/red_rock_lobster.tscn" id="20_ys03h"]
+[ext_resource type="PackedScene" uid="uid://mf0ot7b1lxp5" path="res://Menus/book_ui.tscn" id="23_unwow"]
+[ext_resource type="PackedScene" uid="uid://cmgqupn8164gh" path="res://Menus/upgrade_panel.tscn" id="24_yen2k"]
+[ext_resource type="PackedScene" uid="uid://tgeyirsllo33" path="res://Menus/pause.tscn" id="25_ja1vc"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_yx7mw"]
-a = Vector2(746, 58)
-b = Vector2(104, 58)
+a = Vector2(1058, 53)
+b = Vector2(-216, 46)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wkka1"]
-size = Vector2(12, 368)
+[sub_resource type="Resource" id="Resource_0pd8b"]
+script = ExtResource("6_143ap")
+scene = ExtResource("7_q1kry")
+spawn_y_min = 1000.0
+spawn_y_max = 4000.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_llmvm"]
+script = ExtResource("6_143ap")
+scene = ExtResource("8_kv684")
+spawn_y_min = 0.0
+spawn_y_max = 500.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_lqem0"]
+script = ExtResource("6_143ap")
+scene = ExtResource("14_sctbn")
+spawn_y_min = 3.0
+spawn_y_max = 40.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_s28wp"]
+script = ExtResource("6_143ap")
+scene = ExtResource("10_ok4my")
+spawn_y_min = 450.0
+spawn_y_max = 2500.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_sctbn"]
+script = ExtResource("6_143ap")
+scene = ExtResource("11_6pco2")
+spawn_y_min = 1000.0
+spawn_y_max = 1500.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_1fg3m"]
+script = ExtResource("6_143ap")
+scene = ExtResource("12_ok4my")
+spawn_y_min = 500.0
+spawn_y_max = 2000.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_ys03h"]
+script = ExtResource("6_143ap")
+scene = ExtResource("13_s28wp")
+spawn_y_min = 500.0
+spawn_y_max = 1000.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_unwow"]
+script = ExtResource("6_143ap")
+scene = ExtResource("12_lqem0")
+spawn_y_min = 1000.0
+spawn_y_max = 2000.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_yen2k"]
+script = ExtResource("6_143ap")
+scene = ExtResource("11_llmvm")
+spawn_y_min = 200.0
+spawn_y_max = 2600.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_ja1vc"]
+script = ExtResource("6_143ap")
+scene = ExtResource("16_s28wp")
+spawn_y_min = 200.0
+spawn_y_max = 1500.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_b00y5"]
+script = ExtResource("6_143ap")
+scene = ExtResource("6_ydgnk")
+spawn_y_min = 200.0
+spawn_y_max = 1000.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_pl5pt"]
+script = ExtResource("6_143ap")
+scene = ExtResource("10_0pd8b")
+spawn_y_min = 3.0
+spawn_y_max = 50.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_u72mm"]
+script = ExtResource("6_143ap")
+scene = ExtResource("9_6pco2")
+spawn_y_min = 1000.0
+spawn_y_max = 2500.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_simng"]
+script = ExtResource("6_143ap")
+scene = ExtResource("20_ys03h")
+spawn_y_min = 100.0
+spawn_y_max = 250.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="Resource" id="Resource_7yy02"]
+script = ExtResource("6_143ap")
+scene = ExtResource("7_ntyu6")
+spawn_y_min = 550.0
+spawn_y_max = 2000.0
+metadata/_custom_type_script = "uid://cfewiyuwlsxyg"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uifyn"]
+size = Vector2(22, 858)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_osb01"]
+size = Vector2(24, 719)
 
 [node name="main game" type="Node2D" unique_id=1207342263]
 script = ExtResource("1_ykeeq")
 metadata/_edit_horizontal_guides_ = [-1132.0]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1531579171]
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=21189903]
+repeat_size = Vector2(0, 256)
+repeat_times = 256
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1034949600]
-motion_mirroring = Vector2(0, 1091.785)
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=1424304985]
+texture_filter = 1
+position = Vector2(128, -50)
+texture = ExtResource("2_uka08")
 
-[node name="SpriteBackground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=729883487]
+[node name="SpriteBackground2" type="Sprite2D" parent="." unique_id=2130466734]
 light_mask = 4
-material = SubResource("ShaderMaterial_dugkq")
-scale = Vector2(3.8909574, 3.6416664)
-texture = ExtResource("2_yx7mw")
-offset = Vector2(0.115, 0)
+texture_filter = 1
+position = Vector2(128, -53)
+texture = ExtResource("2_osb01")
 
 [node name="collisions" type="StaticBody2D" parent="." unique_id=1001448788]
 top_level = true
-position = Vector2(376, 241)
+position = Vector2(375, 233)
 collision_layer = 255
 collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisions" unique_id=620738140]
-position = Vector2(-800, -29)
+position = Vector2(-890, -337)
 shape = SubResource("SegmentShape2D_yx7mw")
 
-[node name="player" parent="." unique_id=2027188581 instance=ExtResource("1_1oj5k")]
-position = Vector2(-460, -43)
-collision_layer = 255
-collision_mask = 255
-platform_wall_layers = 255
+[node name="Const" type="Node2D" parent="." unique_id=665295538]
+script = ExtResource("6_6nbqm")
+
+[node name="Fish Spawner" type="Node2D" parent="." unique_id=2041902320]
+position = Vector2(3, -6)
+script = ExtResource("5_6nbqm")
+fish_entries = Array[ExtResource("6_143ap")]([SubResource("Resource_0pd8b"), SubResource("Resource_llmvm"), SubResource("Resource_lqem0"), SubResource("Resource_s28wp"), SubResource("Resource_sctbn"), SubResource("Resource_1fg3m"), SubResource("Resource_ys03h"), SubResource("Resource_unwow"), SubResource("Resource_yen2k"), SubResource("Resource_ja1vc"), SubResource("Resource_b00y5"), SubResource("Resource_pl5pt"), SubResource("Resource_u72mm"), SubResource("Resource_simng"), SubResource("Resource_7yy02")])
+spawn_x_min = 19.99
+spawn_x_max = 227.69
+spawn_interval = 1.0
+max_fish = 6000
+
+[node name="player" parent="." unique_id=2027188581 groups=["player"] instance=ExtResource("1_1oj5k")]
+position = Vector2(128, 50)
+platform_wall_layers = 65535
 
 [node name="Borders" type="StaticBody2D" parent="player" unique_id=1672509865]
-position = Vector2(-2, 3)
+position = Vector2(-2201, 19)
+collision_mask = 0
 
 [node name="left" type="StaticBody2D" parent="player/Borders" unique_id=928869642]
-position = Vector2(149, 171)
-collision_layer = 255
-collision_mask = 255
+position = Vector2(412, 269)
+collision_mask = 0
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="player/Borders/left" unique_id=969936542]
-position = Vector2(-10, 178)
-shape = SubResource("RectangleShape2D_wkka1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Borders/left" unique_id=514384034]
+position = Vector2(-286, -45)
+shape = SubResource("RectangleShape2D_uifyn")
 
 [node name="right" type="StaticBody2D" parent="player/Borders" unique_id=1600842485]
-position = Vector2(780, 146)
-collision_layer = 255
-collision_mask = 255
+position = Vector2(412, 269)
+collision_mask = 0
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="player/Borders/right" unique_id=1352818973]
-position = Vector2(6, 194)
-shape = SubResource("RectangleShape2D_wkka1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/Borders/right" unique_id=1051986937]
+position = Vector2(-533, -124.5)
+shape = SubResource("RectangleShape2D_osb01")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="player" unique_id=744486496]
+
+[node name="Label" type="Label" parent="player/CanvasLayer2" unique_id=1040853258]
+visible = false
+texture_filter = 1
+offset_left = 88.0
+offset_top = 65.0
+offset_right = 170.0
+offset_bottom = 82.0
+size_flags_horizontal = 0
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 58
+text = "Photo Taken!"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="player/CanvasLayer2" unique_id=1904857162]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2133.0
+offset_top = -3666.0
+offset_right = 1358.0
+offset_bottom = 6510.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 4643
+text = "▬
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="BookUI" parent="." unique_id=747388560 instance=ExtResource("23_unwow")]
+
+[node name="Upgrade_Panel" parent="." unique_id=887500863 instance=ExtResource("24_yen2k")]
+
+[node name="Pause" parent="." unique_id=376346523 instance=ExtResource("25_ja1vc")]

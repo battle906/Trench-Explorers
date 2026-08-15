@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bpxvip6gug5cr"]
+
+[ext_resource type="Script" uid="uid://cgt81rs6a4ltl" path="res://Menus/Menu Scripts/debug.gd" id="1_frco7"]
+
+[node name="Debug" type="Control" unique_id=2015221459]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_frco7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=338842922]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 822.0
+offset_bottom = -469.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=406869937]
+texture_filter = 1
+layout_mode = 2

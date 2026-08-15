@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dbmjg60xc60w2"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_oqe2k"]
+[ext_resource type="Resource" uid="uid://k1undgsy723c" path="res://Data/Fish/big_fin_squid.tres" id="2_oqe2k"]
+[ext_resource type="Texture2D" uid="uid://bbfkfm0lxopg5" path="res://Assets/Fish/big_fin_squid.PNG" id="3_oqe2k"]
+[ext_resource type="Shader" uid="uid://b8xq5glyxpjx0" path="res://Assets/Shader/Fishvertical.gdshader" id="3_qe2jo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5whdx"]
+shader = ExtResource("3_qe2jo")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(7, 12)
+
+[node name="big_fin_squid" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_oqe2k")
+data = ExtResource("2_oqe2k")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_5whdx")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_oqe2k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(-2.5, 2)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-11, -6, 7, 12)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

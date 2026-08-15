@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://b0etmqbvu5aq8"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_7wngm"]
+[ext_resource type="Texture2D" uid="uid://vjviab0bgaqy" path="res://Assets/Fish/ghost_shark.PNG" id="1_in77e"]
+
+[resource]
+script = ExtResource("1_7wngm")
+fish_id = "ghost_dragon"
+display_name = "Ghost Dragon"
+tier = 2
+habitat = "Deep seafloor regions and continental slopes."
+diet = "PlanktonCrustaceans, mollusks, small fish."
+description = "Smooth‑skinned, pale chondrichthyan with a long tapering tail."
+fun_fact = "They have electroreceptive organs to detect prey in darkness."
+icon = ExtResource("1_in77e")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

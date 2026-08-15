@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b77phqt01vtsi"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_gecma"]
+[ext_resource type="Resource" uid="uid://b8f8luhu223ok" path="res://Data/Fish/coffin_fish.tres" id="2_gecma"]
+[ext_resource type="Texture2D" uid="uid://bwdcpywshp5e1" path="res://Assets/Fish/coffin_fish.PNG" id="3_gecma"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_pff5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fb10g"]
+shader = ExtResource("3_pff5m")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(10, 5)
+
+[node name="coffin_fish" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_gecma")
+data = ExtResource("2_gecma")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_fb10g")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_gecma")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-11, -5, 10, 5)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

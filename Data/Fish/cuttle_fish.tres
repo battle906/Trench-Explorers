@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://cisyb3xtihflv"]
+
+[ext_resource type="Texture2D" uid="uid://noupjlyhm6g1" path="res://Assets/Fish/cuttle_fish.PNG" id="1_mlpwb"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_te7li"]
+
+[resource]
+script = ExtResource("1_te7li")
+fish_id = "cuttle_fish"
+display_name = "Giant Australian Cuttle Fish"
+tier = 2
+habitat = "Deep coastal waters; migrates shallower to breed."
+diet = "Crabs, fish, other cephalopods."
+description = "Large cephalopod with broad fins and advanced camouflage skin."
+fun_fact = "They can change color, texture, and pattern instantly."
+icon = ExtResource("1_mlpwb")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"
