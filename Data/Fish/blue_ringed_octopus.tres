@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://djx4f8pyu06qo"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_itko7"]
+[ext_resource type="Texture2D" uid="uid://dwiquojewg054" path="res://Assets/Fish/blue_ringed_octopus.PNG" id="1_yhktu"]
+
+[resource]
+script = ExtResource("1_itko7")
+fish_id = "blue_ringed_octopus"
+display_name = "Blue Ringed Octopus"
+habitat = "Tide pools, reefs, sandy shallows."
+diet = "Crabs, shrimp, small fish."
+description = "Small octopus with vivid electric‑blue rings on yellowish skin."
+fun_fact = "Its blue rings glow brighter when it’s ready to defend itself."
+icon = ExtResource("1_yhktu")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

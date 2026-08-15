@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://de3ggqsveeew7"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_ksr6x"]
+[ext_resource type="Resource" uid="uid://cjtsowlhr7h0i" path="res://Data/Fish/red_rock_lobster.tres" id="2_ksr6x"]
+[ext_resource type="Texture2D" uid="uid://4mpg14v23rrl" path="res://Assets/Fish/red_rock_lobster.PNG" id="3_ksr6x"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_u8yw3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8lpbu"]
+shader = ExtResource("3_u8yw3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(15.5625, 7)
+
+[node name="red_rock_lobster" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_ksr6x")
+data = ExtResource("2_ksr6x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_8lpbu")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_ksr6x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(-1.21875, 1.5)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-14, -3, 16, 6)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

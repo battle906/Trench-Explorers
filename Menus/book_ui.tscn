@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://mf0ot7b1lxp5"]
+
+[ext_resource type="Script" uid="uid://6xqoaoq5e0xq" path="res://Menus/Menu Scripts/book_ui.gd" id="1_mabyn"]
+[ext_resource type="PackedScene" uid="uid://iauefp5wttl2" path="res://Menus/fish_row.tscn" id="2_d2vyh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d2vyh"]
+bg_color = Color(0, 0.2197913, 0.36510527, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[node name="BookUI" type="CanvasLayer" unique_id=747388560]
+script = ExtResource("1_mabyn")
+
+[node name="Panel" type="Panel" parent="." unique_id=134884076]
+texture_filter = 1
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.05
+theme_override_styles/panel = SubResource("StyleBoxFlat_d2vyh")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel" unique_id=1460079637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Panel/ScrollContainer" unique_id=1825785180]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 200
+theme_override_constants/v_separation = 600
+
+[node name="FishRow" parent="Panel/ScrollContainer/GridContainer" unique_id=1293867062 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow2" parent="Panel/ScrollContainer/GridContainer" unique_id=1705300038 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow3" parent="Panel/ScrollContainer/GridContainer" unique_id=783440494 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow4" parent="Panel/ScrollContainer/GridContainer" unique_id=114294176 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow5" parent="Panel/ScrollContainer/GridContainer" unique_id=961537044 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow6" parent="Panel/ScrollContainer/GridContainer" unique_id=1919118302 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow7" parent="Panel/ScrollContainer/GridContainer" unique_id=318554374 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow8" parent="Panel/ScrollContainer/GridContainer" unique_id=239296902 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow9" parent="Panel/ScrollContainer/GridContainer" unique_id=90629049 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow10" parent="Panel/ScrollContainer/GridContainer" unique_id=1407464576 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow11" parent="Panel/ScrollContainer/GridContainer" unique_id=491634400 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow12" parent="Panel/ScrollContainer/GridContainer" unique_id=1673465471 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow13" parent="Panel/ScrollContainer/GridContainer" unique_id=1201019418 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow14" parent="Panel/ScrollContainer/GridContainer" unique_id=364833290 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow15" parent="Panel/ScrollContainer/GridContainer" unique_id=663909036 instance=ExtResource("2_d2vyh")]
+layout_mode = 2
+
+[node name="FishRow16" parent="Panel/ScrollContainer/GridContainer" unique_id=936592027 instance=ExtResource("2_d2vyh")]
+layout_mode = 2

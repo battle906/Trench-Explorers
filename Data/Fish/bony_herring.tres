@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://y4be80tv80dp"]
+
+[ext_resource type="Texture2D" uid="uid://cc8odndi6kr3a" path="res://Assets/Fish/bony_herring.png" id="1_0rdbd"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_oqqeg"]
+
+[resource]
+script = ExtResource("1_oqqeg")
+fish_id = "bony_herring"
+display_name = "Bony Herring"
+habitat = "Shallow rivers, lakes, and floodplains."
+diet = "Algae, plankton, detritus."
+description = "Slender freshwater fish with a forked tail and reflective scales."
+fun_fact = "They can survive in extremely salty or low‑oxygen inland waters."
+icon = ExtResource("1_0rdbd")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

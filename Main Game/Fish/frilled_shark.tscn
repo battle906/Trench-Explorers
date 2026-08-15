@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://b1nbjqgtoauap"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_h7u5b"]
+[ext_resource type="Texture2D" uid="uid://b406kdxwpoeah" path="res://Assets/Fish/frilled_shark.PNG" id="2_h7u5b"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="2_wepgb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gs0o4"]
+shader = ExtResource("2_wepgb")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(20, 2)
+
+[node name="frilled_shark" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_h7u5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_gs0o4")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_h7u5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-15, -2, 19, 2)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

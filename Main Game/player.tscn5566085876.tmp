@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bmxn2hfb6hd8j"]
+
+[ext_resource type="Script" uid="uid://deigw7fwy1h17" path="res://Main Game/Main Game Scripts/movement.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://dt5wefvttquat" path="res://Images/Player/IMG_2503.PNG" id="2_jdq5o"]
+[ext_resource type="FontFile" uid="uid://m1gd1kdxkho3" path="res://Jersey20-Regular.ttf" id="2_onrkg"]
+
+[sub_resource type="GDScript" id="GDScript_4flbx"]
+script/source = "extends Camera2D
+
+var fixed_x = 0
+
+func _process(delta):
+	global_position.x = fixed_x
+"
+
+[node name="player" type="CharacterBody2D" unique_id=2027188581]
+disable_mode = 2
+collision_layer = 2
+script = ExtResource("1_4flbx")
+PIXELS_PER_METER = null
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=685795190]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(462, 344)
+scale = Vector2(0.36, 0.36)
+texture = ExtResource("2_jdq5o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1266163684]
+
+[node name="HeightLabel" type="Label" parent="CanvasLayer" unique_id=2139675963]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -97.0
+offset_top = -41.0
+offset_right = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 13
+theme_override_fonts/font = ExtResource("2_onrkg")
+theme_override_font_sizes/font_size = 40
+vertical_alignment = 1
+
+[node name="Node2D" type="Node2D" parent="." unique_id=147596560]
+
+[node name="Camera2D" type="Camera2D" parent="Node2D" unique_id=1696930570]
+position = Vector2(462, 344)
+zoom = Vector2(1.795, 1.795)
+script = SubResource("GDScript_4flbx")

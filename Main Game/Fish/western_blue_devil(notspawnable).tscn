@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://q806a1tyr870"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_1243e"]
+[ext_resource type="Resource" uid="uid://bhdcvgvi7fu0s" path="res://Data/Fish/western_blue_devil(notspawnable).tres" id="2_1243e"]
+[ext_resource type="Texture2D" uid="uid://dqg8cpfh46ipp" path="res://Assets/Fish/western_blue_devil.PNG" id="3_1243e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(9, 7)
+
+[node name="western_blue_devil" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 255
+collision_mask = 255
+script = ExtResource("1_1243e")
+data = ExtResource("2_1243e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_1243e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 1)
+rect = Rect2(-9, -4, 9, 7)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

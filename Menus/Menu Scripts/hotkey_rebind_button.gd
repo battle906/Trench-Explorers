@@ -25,6 +25,12 @@ func set_action_name() -> void:
 			label.text = "Move Left"
 		"right":
 			label.text = "Move Right"
+		"pause":
+			label.text = "Pause"
+		"info":
+			label.text = "Fish Info Panel"
+		"photo":
+			label.text = "Take Photo"
 
 
 func set_text_for_key() -> void:

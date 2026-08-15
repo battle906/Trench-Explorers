@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://bf3m4w2wdkbj7"]
+
+[ext_resource type="Texture2D" uid="uid://jhqr30n2kuah" path="res://Assets/Fish/pelican_eel.PNG" id="1_aodah"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_l3e3p"]
+
+[resource]
+script = ExtResource("1_l3e3p")
+fish_id = "pelican_eel"
+display_name = "Pelican Eel"
+tier = 2
+habitat = "Deep abyssal waters."
+diet = "Shrimp, small fish, gelatinous animals."
+description = "Long, thin eel with a huge pouch‑like mouth and glowing tail tip."
+fun_fact = "Its enormous jaw can open wider than its body."
+icon = ExtResource("1_aodah")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

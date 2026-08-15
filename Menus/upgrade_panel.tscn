@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cmgqupn8164gh"]
+
+[ext_resource type="Texture2D" uid="uid://bxiwlh6l3ma52" path="res://Assets/Player/IMG_2559.PNG" id="1_e2wab"]
+[ext_resource type="Script" uid="uid://c6qxd1c6ji2sk" path="res://Menus/Menu Scripts/upgrade.gd" id="1_w8jfu"]
+[ext_resource type="Texture2D" uid="uid://cgqmbw5xpsjpo" path="res://Assets/Player/IMG_2562.PNG" id="2_qq081"]
+[ext_resource type="Texture2D" uid="uid://bmight8rjj0q7" path="res://Assets/Player/IMG_2563.PNG" id="3_fcmys"]
+[ext_resource type="Script" uid="uid://b21x778xn55sl" path="res://Menus/Menu Scripts/button.gd" id="3_ir1lx"]
+[ext_resource type="Texture2D" uid="uid://c1t86p3yuu081" path="res://Assets/Player/IMG_2564.PNG" id="4_1iy4n"]
+[ext_resource type="Texture2D" uid="uid://cb5joivb6o104" path="res://Assets/Player/IMG_2565.PNG" id="5_w8jfu"]
+
+[node name="Upgrade_Panel" type="CanvasLayer" unique_id=1303465721]
+script = ExtResource("1_w8jfu")
+
+[node name="Panel" type="Panel" parent="." unique_id=1273157226]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=1360234479]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -447.0
+offset_right = 447.0
+offset_bottom = 565.0
+grow_horizontal = 2
+theme_override_constants/separation = 37
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=196534098]
+layout_mode = 2
+theme_override_constants/separation = 51
+
+[node name="upgrade1" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1617763920]
+layout_mode = 2
+icon = ExtResource("1_e2wab")
+flat = true
+script = ExtResource("3_ir1lx")
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/upgrade1" unique_id=844475969]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 29
+text = "Light Atachment 
+$150"
+horizontal_alignment = 1
+
+[node name="upgrade2" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1018886468]
+layout_mode = 2
+disabled = true
+icon = ExtResource("2_qq081")
+flat = true
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/upgrade2" unique_id=1748883289]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 29
+text = "Speed Upgrade
+$300"
+horizontal_alignment = 1
+
+[node name="upgrade3" type="Button" parent="Panel/VBoxContainer/HBoxContainer" unique_id=1109784804]
+layout_mode = 2
+disabled = true
+icon = ExtResource("3_fcmys")
+flat = true
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer/upgrade3" unique_id=1298069267]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 29
+text = "Light Atachment V2
+$500"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=833169287]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 51
+
+[node name="upgrade4" type="Button" parent="Panel/VBoxContainer/HBoxContainer2" unique_id=2043778463]
+layout_mode = 2
+disabled = true
+icon = ExtResource("4_1iy4n")
+flat = true
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/upgrade4" unique_id=283825714]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 29
+text = "Better Light
+$1000"
+horizontal_alignment = 1
+
+[node name="upgrade5" type="Button" parent="Panel/VBoxContainer/HBoxContainer2" unique_id=367541876]
+layout_mode = 2
+disabled = true
+icon = ExtResource("5_w8jfu")
+flat = true
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/HBoxContainer2/upgrade5" unique_id=842707040]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 29
+text = "Speed Upgrade 2
+$1500"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer/upgrade3" to="." method="_on_upgrade_3_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/upgrade4" to="." method="_on_upgrade_4_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/HBoxContainer2/upgrade5" to="." method="_on_upgrade_5_pressed"]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://1hhhqv32mb4b"]
+
+[ext_resource type="Texture2D" uid="uid://c3nc7caocvbrq" path="res://Assets/Fish/colossal_squid.PNG" id="1_6snon"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_64s2e"]
+
+[resource]
+script = ExtResource("1_64s2e")
+fish_id = "colossal_squid"
+display_name = "Colossal Sqiud"
+tier = 3
+habitat = "Deep Southern Ocean waters."
+diet = "Large fish, other squid."
+description = "Massive, heavy‑bodied squid with rotating hooks on its tentacles."
+fun_fact = "Has the largest eyes of any animal on Earth."
+icon = ExtResource("1_6snon")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

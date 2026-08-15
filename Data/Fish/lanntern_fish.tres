@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://btnxoet3gep4b"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_fvvb6"]
+[ext_resource type="Texture2D" uid="uid://cn8m02b5brnpr" path="res://Assets/Fish/Lantern_fish.PNG" id="1_jtyqy"]
+
+[resource]
+script = ExtResource("1_fvvb6")
+fish_id = "lantern_fish"
+display_name = "Lantern Fish"
+tier = 1
+habitat = "Midwater twilight zone."
+diet = "Zooplankton, tiny crustaceans, small fish larvae."
+description = "Small, silvery, bioluminescent fish with rows of glowing photophores."
+fun_fact = "They make up over half of all deep-sea fish."
+icon = ExtResource("1_jtyqy")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

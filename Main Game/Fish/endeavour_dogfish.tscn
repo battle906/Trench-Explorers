@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ciscwvdtcxpgo"]
+
+[ext_resource type="Script" uid="uid://bfkv81etidl77" path="res://Main Game/Main Game Scripts/fish.gd" id="1_a5b7c"]
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="2_2ls6i"]
+[ext_resource type="Texture2D" uid="uid://dkie3coalsakp" path="res://Assets/Fish/endeavour_dogfish.PNG" id="2_a5b7c"]
+[ext_resource type="Shader" uid="uid://dcue47usqxyqx" path="res://Assets/Shader/FishHorizontal.gdshader" id="3_3l6b4"]
+
+[sub_resource type="Resource" id="Resource_3l6b4"]
+script = ExtResource("2_2ls6i")
+fish_id = "endeavour_dogfish"
+display_name = "Endeavor Dogfish"
+tier = 1
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b010y"]
+shader = ExtResource("3_3l6b4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgn23"]
+size = Vector2(13.5625, 2.5)
+
+[node name="Endeavour_dogfish" type="CharacterBody2D" unique_id=886355824]
+disable_mode = 2
+collision_layer = 4
+script = ExtResource("1_a5b7c")
+data = SubResource("Resource_3l6b4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=466313473]
+texture_filter = 1
+material = SubResource("ShaderMaterial_b010y")
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("2_a5b7c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=497106775]
+position = Vector2(-0.21875, 0.75)
+shape = SubResource("RectangleShape2D_hgn23")
+
+[node name="Timer" type="Timer" parent="." unique_id=385114512]
+one_shot = true
+autostart = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=86190160]
+position = Vector2(5, 2)
+rect = Rect2(-12, -3, 14, 3)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

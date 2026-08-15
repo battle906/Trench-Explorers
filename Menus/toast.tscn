@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://borl5m8kyj62y"]
+
+[ext_resource type="Script" uid="uid://h56ojvuhqoos" path="res://Menus/Menu Scripts/toast.gd" id="1_r7bu7"]
+
+[node name="Toast" type="Control" unique_id=564661328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r7bu7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=861969940]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1270044130]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.41960785, 0.67058825, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 38

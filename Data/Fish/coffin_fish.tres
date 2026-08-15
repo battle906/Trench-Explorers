@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://b8f8luhu223ok"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_opiea"]
+[ext_resource type="Texture2D" uid="uid://bwdcpywshp5e1" path="res://Assets/Fish/coffin_fish.PNG" id="1_xn6gs"]
+
+[resource]
+script = ExtResource("1_opiea")
+fish_id = "coffin_fish"
+display_name = "Coffin Fish"
+tier = 2
+habitat = "Deep Zones."
+diet = "Small fish, crustaceans, worms."
+description = "A type of anglerfish with a boxy body and lure‑bearing head."
+fun_fact = "They can inflate their body like a balloon when threatened."
+icon = ExtResource("1_xn6gs")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"

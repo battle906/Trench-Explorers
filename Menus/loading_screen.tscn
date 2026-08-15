@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://bnhssjqb6xp0y"]
+
+[ext_resource type="Script" uid="uid://b51qt3ylhnaev" path="res://Menus/Menu Scripts/loading_screen.gd" id="1_xcbcs"]
+[ext_resource type="Texture2D" uid="uid://5wok0pca548o" path="res://Assets/Background/IMG_2566.PNG" id="2_mcw6h"]
+[ext_resource type="Texture2D" uid="uid://dt5wefvttquat" path="res://Assets/Player/IMG_2503.PNG" id="3_7kywr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7kywr"]
+
+[node name="Loading_Screen" type="Control" unique_id=469729217]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xcbcs")
+
+[node name="Panel" type="TextureRect" parent="." unique_id=1883576209]
+modulate = Color(0.50614595, 0.50614595, 0.50614595, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mcw6h")
+
+[node name="VSeparator" type="VSeparator" parent="Panel" unique_id=1192470648]
+layout_mode = 0
+offset_top = 185.0
+offset_right = 4.0
+offset_bottom = 648.0
+theme_override_styles/separator = SubResource("StyleBoxEmpty_7kywr")
+
+[node name="Label" type="Label" parent="Panel" unique_id=1502210369]
+top_level = true
+layout_mode = 0
+offset_left = 27.0
+offset_top = 138.0
+offset_right = 1179.0
+offset_bottom = 567.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.59937644, 0.9454209, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 50
+text = "Move Up: W
+Move Down: S
+Move Right: A
+Move Left: D
+Open Fish Info Book: I
+Pause: P/ESC
+Open Upgrade Panel: U
+Take Photo: E"
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1652374362]
+clip_contents = true
+layout_mode = 0
+offset_left = 596.0
+offset_top = 172.0
+offset_right = 1121.0
+offset_bottom = 616.0
+size_flags_vertical = 3
+texture = ExtResource("3_7kywr")
+stretch_mode = 6
+flip_h = true
+
+[node name="Label2" type="Label" parent="." unique_id=495785638]
+top_level = true
+layout_mode = 0
+offset_top = 34.0
+offset_right = 1152.0
+offset_bottom = 322.0
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0.6, 0.94509804, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 17
+theme_override_font_sizes/font_size = 100
+text = "Trench Explorers
+"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1826760894]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -65.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0.6, 0.94509804, 1)
+theme_override_constants/outline_size = 18
+theme_override_font_sizes/font_size = 60

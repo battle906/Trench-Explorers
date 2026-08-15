@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FishData" format=3 uid="uid://c46qedlsat61h"]
+
+[ext_resource type="Script" uid="uid://ckqngsq7u3p7t" path="res://Main Game/Main Game Scripts/fish_data.gd" id="1_o144i"]
+[ext_resource type="Texture2D" uid="uid://bbh62mnh856uv" path="res://Assets/Fish/harlequin_fish.PNG" id="1_wvksx"]
+
+[resource]
+script = ExtResource("1_o144i")
+fish_id = "halequin_fish"
+display_name = "Halequin Fish"
+tier = 1
+habitat = "Deep reefs and continental slopes."
+diet = "Small fish, crustaceans, benthic invertebrates."
+description = "Deep‑sea perch with striking red, orange, or patterned coloration."
+fun_fact = "Known for bold patterns despite living in dim deepwater."
+icon = ExtResource("1_wvksx")
+metadata/_custom_type_script = "uid://ckqngsq7u3p7t"
